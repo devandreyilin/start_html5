@@ -1,0 +1,14 @@
+{
+  "name": "start_html5",
+  "version": "1.0.0",
+  "description": "Сборка для начала верстки",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Андрей Ильин",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.4.1"
+  }
+}

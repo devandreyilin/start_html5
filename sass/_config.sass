@@ -1,0 +1,149 @@
+// USER VARIABLES SECTION
+$accent: orange // Accent Color
+$textcolor: #333 // Text Color
+$default-font: Roboto, sans-serif // Roboto Font Family
+$trs: all 0.25s ease
+
+// Bootstrap compatible gutter variable => $gutter
+$grid-gutter-width: 30px
+$gutter: $grid-gutter-width
+
+// IMPORT SECTION
+@import '../node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
+@import '../node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
+// @import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
+// @import 'node_modules/bootstrap/scss/utilities/_sizing.scss' // Optional Bootstrap Utilites
+
+// FONTS LOAD SECTION
+@mixin font($fname, $fstyle, $fweight, $furl)
+   @font-face
+      font-family: $fname
+      font-style: $fstyle
+      font-weight: $fweight
+      src: local($fname), url($furl) format('woff2')
+
+@include font('Roboto', normal, 400, '../fonts/roboto-regular-webfont.woff2')
+@include font('Roboto', italic, 400, '../fonts/roboto-italic-webfont.woff2')
+@include font('Roboto', normal, 700, '../fonts/roboto-bold-webfont.woff2')
+@include font('Roboto', italic, 700, '../fonts/roboto-bolditalic-webfont.woff2')
+
+// GENERAL DOCUMENT STYLES
+::placeholder
+   color: #666666
+
+::selection
+   background-color: $accent
+   color: #fff
+
+html
+   font-size: 10px
+
+body
+   position: relative
+   height: 100%
+   min-width: 320px
+   overflow-x: hidden
+   color: $textcolor
+   font-size: 16px
+   font-family: $default-font
+   line-height: 1.4
+
+   input, textarea
+      border: #666 1px solid
+      outline: none
+      &:focus:required:invalid
+         border-color: red
+      &:required:valid
+         border-color: green
+
+img
+   width: 100%
+   max-width: 100%
+   height: auto
+
+b, strong
+   font-weight: bold
+
+ul
+   list-style-type: none
+   margin: 0
+   padding: 0
+
+a
+   display: block
+   color: $accent
+
+   &:hover
+      text-decoration: none
+   
+
+   &:active, &:focus
+      border: none
+      outline: none
+
+button, figure
+   color: inherit
+   border: none
+   outline: none
+
+   &:focus, &:active
+      outline: none
+      border: none
+
+select
+   &:focus, &:active
+      outline: none
+
+header, section, footer
+   position: relative
+   background-repeat: no-repeat
+   background-position: center
+   background-size: cover
+
+.page-footer
+   margin-top: auto
+
+.button
+   display: inline-block
+   color: #fff
+   background-color: $accent
+   padding: 15px 45px
+   font-size: 13px
+   text-transform: uppercase
+   font-weight: 700
+   border-radius: 2px
+   text-align: center
+   position: relative
+   transition: $trs
+   cursor: pointer
+   &::after
+      transition: background-color .2s ease
+      position: absolute
+      content: ''
+      height: 4px
+      bottom: 0
+      width: 100%
+      background-color: darken($accent, 50%)
+      opacity: .18
+      border-bottom-left-radius: 2px
+      border-bottom-right-radius: 2px
+      left: 0
+
+   &:focus, &:hover
+      text-decoration: none
+      color: #fff
+
+   &:hover
+      background-color: lighten($accent, 5%)
+      &::after
+         opacity: .22
+   &:active
+      background-color: darken($accent, 5%)
+      &::after
+         opacity: .32
+
+.img-cover
+   display: flex
+   width: 100%
+   height: 100% !important
+   object-fit: cover
